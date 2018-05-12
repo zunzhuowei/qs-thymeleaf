@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/my-common.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+</head>
+<body>
+<div th:class="loginFormDiv">
+    <form th:action="@{/login.html}" th:class="loginForm" th:method="post">
+        <div th:class="loginInput">
+            <label th:text="用户名"></label>
+            <input th:type="text" th:name="username"/>
+        </div>
+        <div th:class="loginInput">
+            <label th:text="密码"></label>
+            <input th:type="password" th:name="password"/>
+        </div>
+        <div th:class="loginInput">
+            <input th:type="submit" th:class="commit" th:hidden="hidden" th:value="提交">
+        </div>
+        <div th:class="commitBt">提交</div>
+    </form>
+</div>
+
+<h1 id="h111">dfadfdsfdsa</h1>
+
+</body>
+</html>
+<script>
+    $('#h111').html("1111111111111111");
+
+    $('#h111').on('click', function () {
+        alert('click h1');
+    });
+    $('.commitBt').on('click', function () {
+        var username = $("input[name='username']").val();
+        var password = $("input[name='password']").val();
+        if (!username) {
+            alert("username is null");
+            return;
+        }
+        if (!password) {
+            alert("password is null");
+            return;
+        }
+        $(".commit").click();
+    });
+</script>
